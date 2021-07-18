@@ -1,0 +1,39 @@
+{
+    "editor.tabSize": 2,
+    "editor.fontFamily": "'JetBrains Mono', 'Hack Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+    "editor.renderWhitespace": "all",
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.colorTheme": "Palenight (Mild Contrast)",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "gitlens.mode.active": "zen",
+    "files.trimTrailingWhitespace": true,
+    "editor.cursorWidth": 3,
+    "search.exclude": {
+        "**/tmp": true
+    },
+    "search.seedOnFocus": true,
+    "editor.renderControlCharacters": true,
+    "solargraph.commandPath": "/Users/ivan/.rvm/gems/ruby-2.7.1/bin/solargraph",
+    "solargraph.useBundler": false,
+    "solargraph.bundlerPath": "/Users/ivan/.rvm/gems/ruby-2.7.1/bin/bundle",
+    "workbench.iconTheme": "material-icon-theme",
+    "emmet.includeLanguages": {
+        "erb": "html",
+        "html.erb": "html",
+    },
+    "files.associations": {
+        "*.erb": "erb"
+    },
+    "ruby.rubocop.configFilePath": "./.rubocop.yml",
+    "editor.inlineSuggest.enabled": true,
+    "redhat.telemetry.enabled": false,
+    "github.copilot.autocomplete.enable": true
+}
