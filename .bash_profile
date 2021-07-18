@@ -6,3 +6,4 @@ fi
 
 source ~/.profile
 source /Users/toniev/.rvm/scripts/rvmexport PATH="$(brew --prefix qt)/bin:$PATH"
+export GPG_TTY=$(tty)
