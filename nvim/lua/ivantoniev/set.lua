@@ -9,13 +9,13 @@ vim.opt.showcmd = true                    -- Show incomplete cmds down the botto
 vim.opt.showmode = true                   -- Show current mode down
 vim.opt.gcr = "a:blinkon0"             -- Disable cursos blink
 
-vim.opt.listchars += "space:·"
+vim.opt.listchars = vim.opt.listchars + "space:·"
 vim.opt.list = true
 vim.opt.guifont = "Monaco:h14"
 vim.opt.title = true
 vim.opt.updatetime = 100
-vim.opt.noswapfile = true
-vim.opt.nobackup = true
+vim.opt.swapfile = false
+vim.opt.backup = false
 vim.opt.ruler = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -48,3 +48,6 @@ vim.opt.visualbell = true
 
 -- Set leader
 vim.g.mapleader = ","
+
+local NERDTreeShowHidden=2
+NVIM_TUI_ENABLE_TRUE_COLOR=1

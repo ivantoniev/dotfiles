@@ -27,3 +27,10 @@ nmap("<leader>g", ":TestVisit<CR>")
 -- Autocomplete
 -- vim.api.nvim_set_keymap("i", "<S-Tab>", "<C-P>")
 
+-- Find files with telescope
+nnoremap("<leader>ff", "<cmd>Telescope find_files hidden=true<cr>")
+nnoremap("<C-p>", "<cmd>Telescope find_files hidden=true<cr>")
+nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
+nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
+nnoremap("<leader>fh", "<cmd>Telescope help_tags<cr>")
+
