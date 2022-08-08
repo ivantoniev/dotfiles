@@ -195,7 +195,7 @@ alias eac=edit_alacritty_confi
 # Launch emacs client (faster) or neovide if server not running
 alias emacs="emacsclient -c -a 'neovide'"
 # Launch neovide instead of terminal nvim
-alias nvim="neovide"
+alias rubocop_changes="git diff --name-only | grep '\.rb$' | xargs rubocop -a"
 
 # Various paths
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
