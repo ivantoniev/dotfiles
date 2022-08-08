@@ -2,4 +2,5 @@ require("ivantoniev.set")
 require("ivantoniev.plug")
 require("ivantoniev.remap")
 require("ivantoniev.treesitter")
-require("ivantoniev.nvim_tree")
+-- Only load if removing NERDTree
+-- require("ivantoniev.nvim_tree")
