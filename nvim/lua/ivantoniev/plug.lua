@@ -11,12 +11,8 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
 
   -- Searching
   Plug('nvim-lua/plenary.nvim')
-  Plug('nvim-telescope/telescope.nvim', { tag = '1.1.0' })
-
-  -- Potentially deprecate if telescope is cool
-  -- Plug("ctrlpvim/ctrlp.vim")
-  -- Plug("junegunn/fzf", { ["do"] = vim.fn["fzf#install"] })
-  -- Plug("junegunn/fzf.vim")
+  Plug('nvim-telescope/telescope.nvim', { tag = "1.1.0" })
+  Plug('nvim-telescope/telescope-fzf-native.nvim', { ["do"] = vim.fn["make"] })
 
   -- Pretty status line
   Plug("vim-airline/vim-airline")
@@ -34,11 +30,15 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
   Plug("tpope/vim-sensible")
 
   -- Yggdrasil
-  Plug("scrooloose/nerdTree")
+  Plug("scrooloose/nerdTree") -- old faithfull, might retire
+  -- Plug("kyazdani42/nvim-tree.lua")
 
   -- Vim test runner for multiple langs, replaces thoughbot/vim-rspec
   -- So that tests for multiple langs can be ran
   Plug("vim-test/vim-test")
+
+  -- Syntax highlighting magic
+  Plug("nvim-treesitter/nvim-treesitter", { ["do"] = vim.fn[":TSUpdate"] })
 
   -- For the _very rare_ occassion I come by coffeescript these days
   Plug("kchmck/vim-coffee-script")
@@ -48,4 +48,8 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
 
   -- Fold blocks and such, need to play with it
   Plug("kevinhwang91/nvim-ufo")
+
+  -- Make Tree pretty, has to be at the end
+  -- Plug("ryanoasis/vim-devicons") -- make it pretty
+  Plug("kyazdani42/nvim-web-devicons")
 vim.call("plug#end")

@@ -2,16 +2,21 @@
 vim.opt.encoding = "utf-8"
 vim.opt.syntax = "enable"
 
+-- Set leader
+vim.g.mapleader = ","
+
 vim.opt.filetype = "on" -- required
 vim.opt.backspace = "indent,eol,start" -- Backspace in insert mode
 vim.opt.history = 1000               -- :cmdline history of commands
 vim.opt.showcmd = true                    -- Show incomplete cmds down the bottom
 vim.opt.showmode = true                   -- Show current mode down
 vim.opt.gcr = "a:blinkon0"             -- Disable cursos blink
+vim.opt.autoindent = true
 
 vim.opt.listchars = vim.opt.listchars + "space:·"
 vim.opt.list = true
-vim.opt.guifont = "Monaco:h14"
+vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h14"
+vim.g.gui_font_size = 14
 vim.opt.title = true
 vim.opt.updatetime = 100
 vim.opt.swapfile = false
@@ -19,9 +24,6 @@ vim.opt.backup = false
 vim.opt.ruler = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-
--- Make cursor thick
-vim.opt.guicursor = ""
 
 -- Line numbers + relative
 vim.opt.nu = true
@@ -46,8 +48,24 @@ vim.opt.hidden = true
 -- No sounds, just visual
 vim.opt.visualbell = true
 
--- Set leader
-vim.g.mapleader = ","
+-- Allow neovim to use global clipboard
+vim.opt.clipboard = "unnamedplus"
 
-local NERDTreeShowHidden=2
+-- Allow hidden files in NERDTree
+NERDTreeShowHidden=2
+
+-- Make cursor thick
+vim.opt.guicursor = ""
+
+-- Nice colors
 NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+-- Airline with nice fonts
+vim.g.airline_powerline_fonts = 1
+
+vim.opt.cc = "120" -- column at 120 chars
+vim.opt.ttyfast = true -- faster scrolling
+
+-- Neovide specifics
+vim.g.neovide_cursor_vfx_mode = "" -- use value railgun for cool effect
+vim.g.neovide_cursor_animation_length = 0.001

@@ -1,4 +1,5 @@
 require("ivantoniev.set")
 require("ivantoniev.plug")
 require("ivantoniev.remap")
-print("Hello from ivantoniev")
+require("ivantoniev.treesitter")
+require("ivantoniev.nvim_tree")

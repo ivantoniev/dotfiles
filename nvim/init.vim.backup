@@ -5,16 +5,6 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-"allow searching with ctrlp
-let g:cmdp_cmd = 'CtrlP'
-"vim rspec use iterm2
-let g:rspec_runner = "os_x_iterm2"
-"ctrlp to open in new tab
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
-    \ 'AcceptSelection("t")': ['<cr>'],
-    \ }
-
 "These are needed so ctrlp works with big nested codebase
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40

@@ -17,6 +17,9 @@ inoremap("(<cr>", "(<cr>)<c-o><s-o>")
 nmap(",n", ":NERDTreeFind<CR>")
 nmap(",m", ":NERDTreeToggle<CR>")
 
+--nmap(",n", ":NvimTreeFind<CR>")
+--nmap(",m", ":NvimTreeToggle<CR>")
+
 -- RSpec for vim
 nmap("<leader>s", ":TestNearest<CR>")
 nmap("<leader>r", ":TestFile<CR>")
