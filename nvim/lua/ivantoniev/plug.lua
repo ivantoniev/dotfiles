@@ -13,12 +13,15 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
   Plug('nvim-lua/plenary.nvim')
   Plug('nvim-telescope/telescope.nvim', { tag = "1.1.0" })
   Plug('nvim-telescope/telescope-fzf-native.nvim', { ["do"] = vim.fn["make"] })
-
+  Plug('junegunn/fzf', { ['do'] = vim.fn["fzf#install"] })
+  Plug('junegunn/fzf.vim')
   -- Pretty status line
   Plug("vim-airline/vim-airline")
 
   -- Check if needed or use another LSP thing
   --Plug("w0rp/ale")
+  Plug("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
+  Plug("neoclide/coc.nvim", { branch = "release" })
 
   -- Some more git goodness; TODO Do I need this + fugitive?
   Plug("airblade/vim-gitgutter")
@@ -47,7 +50,7 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
   Plug("farmergreg/vim-lastplace")
 
   -- Fold blocks and such, need to play with it
-  Plug("kevinhwang91/nvim-ufo")
+  -- Plug("kevinhwang91/nvim-ufo")
 
   -- Make Tree pretty, has to be at the end
   -- Plug("ryanoasis/vim-devicons") -- make it pretty
