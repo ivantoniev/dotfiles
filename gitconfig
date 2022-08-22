@@ -1,20 +1,23 @@
 [core]
-  editor = vim
-  pager = delta --dark --plus-color="#012800" --minus-color="#340001" #--theme="base16"
+  editor = nvim
+  pager = delta --dark --plus-style="#012800" --minus-style="#340001"
+	excludesfile = /Users/ivanivanov/.gitignore_global
+[pager]
+  log = delta
+  show = delta
+  diff = delta
+[delta]
+  features = decorations
+  syntax-theme = Monokai Extended
+  navigate = true
+[interactive]
+  diffFilter = delta --color-only
 [diff]
   tool = meld
 [difftool]
   prompt = false
-[difftool "meld"]
-  trustExitCode = true
-  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
-[merge]
-  tool = meld
 [mergetool]
   prompt = false
-[mergetool "meld"]
-  trustExitCode = true
-  cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
 [alias]
   co = checkout
   br = branch
@@ -24,12 +27,12 @@
 [fetch]
   prune = true
 [user]
-	name = Ivan Ivanov
-  email = ivantoniev@gmail.com
-	signingkey = key
+  name = Ivan Ivanov
 [commit]
-	gpgsign = true
+  gpgsign = true
 [gpg]
-	program = /usr/local/bin/gpg
+  program = /usr/local/bin/gpg
 [push]
-	followTags = true
+  followTags = true
+[gpg]
+	program = gpg
