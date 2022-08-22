@@ -15,18 +15,26 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
   Plug('nvim-telescope/telescope-fzf-native.nvim', { ["do"] = vim.fn["make"] })
   Plug('junegunn/fzf', { ['do'] = vim.fn["fzf#install"] })
   Plug('junegunn/fzf.vim')
+  -- Nicer in-file searching
+  Plug("romainl/vim-cool")
   -- Pretty status line
   Plug("vim-airline/vim-airline")
 
   -- Check if needed or use another LSP thing
   --Plug("w0rp/ale")
   Plug("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
-  Plug("neoclide/coc.nvim", { branch = "release" })
+  -- Plug("neoclide/coc.nvim", { branch = "release" })
+  --
+  -- Highlight trailing spaces + func to clean them
+  Plug("ntpeters/vim-better-whitespace")
+  -- Syntax highlighting magic
+  Plug("nvim-treesitter/nvim-treesitter", { ["do"] = vim.fn[":TSUpdate"] })
 
   -- Some more git goodness; TODO Do I need this + fugitive?
   Plug("airblade/vim-gitgutter")
   -- Git Blame, but nicer
   Plug("APZelos/blamer.nvim") 
+
   -- TPope git goodness
   Plug("tpope/vim-fugitive")
   -- TPope sensible defaults
@@ -39,9 +47,6 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
   -- Vim test runner for multiple langs, replaces thoughbot/vim-rspec
   -- So that tests for multiple langs can be ran
   Plug("vim-test/vim-test")
-
-  -- Syntax highlighting magic
-  Plug("nvim-treesitter/nvim-treesitter", { ["do"] = vim.fn[":TSUpdate"] })
 
   -- For the _very rare_ occassion I come by coffeescript these days
   Plug("kchmck/vim-coffee-script")

@@ -196,7 +196,6 @@ alias eac=edit_alacritty_config
 alias emacs="emacsclient -c -a 'neovide'"
 # Run rubocop on changed files only
 alias rubocop_changes="git diff --name-only | grep '\.rb$' | xargs rubocop -a"
-
 # Go to hooks repo
 alias trh="cd ~/repos/tracking-webhooks-receiver"
 # Go to bwr repo
@@ -231,5 +230,4 @@ typeset -g POWERLEVEL10K_INSTANT_PROMPT=quiet
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #export TERM=alacritty
-
 

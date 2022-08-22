@@ -37,3 +37,6 @@ nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
 nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
 nnoremap("<leader>fh", "<cmd>Telescope help_tags<cr>")
 
+-- Copying filename to clipboard
+nmap("<leader>cs", ":let @*=expand('%')<CR>") -- Copy just filename
+nmap("<leader>cl", ":let @*=expand('%:p')<CR>") -- Copy filename with path

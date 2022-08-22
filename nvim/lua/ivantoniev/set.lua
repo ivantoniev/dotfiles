@@ -16,7 +16,7 @@ vim.opt.autoindent = true
 vim.opt.listchars = vim.opt.listchars + "space:·"
 vim.opt.list = true
 vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h14"
-vim.g.gui_font_size = 14
+vim.g.gui_font_size = 13
 vim.opt.title = true
 vim.opt.updatetime = 100
 vim.opt.swapfile = false
@@ -69,3 +69,8 @@ vim.opt.ttyfast = true -- faster scrolling
 -- Neovide specifics
 vim.g.neovide_cursor_vfx_mode = "" -- use value railgun for cool effect
 vim.g.neovide_cursor_animation_length = 0.001
+
+-- This comes from the vim-better-whitespace plugin
+vim.g.strip_whitespace_on_save = 1 -- Strip whitespace on save
+vim.g.strip_only_modified_lines = 1 -- Don't strip everything
+
