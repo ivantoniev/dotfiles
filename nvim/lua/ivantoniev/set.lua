@@ -67,8 +67,10 @@ vim.opt.cc = "120" -- column at 120 chars
 vim.opt.ttyfast = true -- faster scrolling
 
 -- Neovide specifics
-vim.g.neovide_cursor_vfx_mode = "" -- use value railgun for cool effect
-vim.g.neovide_cursor_animation_length = 0.001
+vim.g.neovide_cursor_vfx_mode = "railgun" -- use value railgun for cool effect
+vim.g.neovide_cursor_animation_length = 0.1
+vim.g.neovide_cursor_vfx_particle_phase = 0.8 -- railgun only
+vim.g.neovide_cursor_vfx_particle_curl = 1.0 -- railgun only
 
 -- This comes from the vim-better-whitespace plugin
 vim.g.strip_whitespace_on_save = 1 -- Strip whitespace on save

@@ -20,21 +20,17 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
   -- Pretty status line
   Plug("vim-airline/vim-airline")
 
-  -- Check if needed or use another LSP thing
-  --Plug("w0rp/ale")
-  Plug("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
-  -- Plug("neoclide/coc.nvim", { branch = "release" })
-  --
-  -- Highlight trailing spaces + func to clean them
-  Plug("ntpeters/vim-better-whitespace")
+  -- Configurations for Nvim LSP
+  Plug("neovim/nvim-lspconfig")
   -- Syntax highlighting magic
   Plug("nvim-treesitter/nvim-treesitter", { ["do"] = vim.fn[":TSUpdate"] })
+  -- Highlight trailing spaces + func to clean them
+  Plug("ntpeters/vim-better-whitespace")
 
   -- Some more git goodness; TODO Do I need this + fugitive?
   Plug("airblade/vim-gitgutter")
   -- Git Blame, but nicer
   Plug("APZelos/blamer.nvim") 
-
   -- TPope git goodness
   Plug("tpope/vim-fugitive")
   -- TPope sensible defaults
