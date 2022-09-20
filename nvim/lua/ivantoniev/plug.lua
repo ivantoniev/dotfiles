@@ -40,8 +40,7 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
   Plug("tpope/vim-sensible")
 
   -- Yggdrasil
-  Plug("scrooloose/nerdTree") -- old faithfull, might retire
-  -- Plug("kyazdani42/nvim-tree.lua")
+  Plug("scrooloose/nerdTree")
 
   -- Vim test runner for multiple langs, replaces thoughbot/vim-rspec
   -- So that tests for multiple langs can be ran
