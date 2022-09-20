@@ -3,11 +3,11 @@ local Plug = vim.fn["plug#"]
 vim.call("plug#begin", "~/.config/nvim/plugged")
   -- Themes
   Plug("folke/tokyonight.nvim", { branch = "main" })
-  Plug("mhartington/oceanic-next")
   Plug("drewtempelmeyer/palenight.vim")
-  Plug("ayu-theme/ayu-vim")
   Plug("tssm/fairyfloss.vim")
-  Plug("rakr/vim-one")
+  -- Plug("mhartington/oceanic-next")
+  -- Plug("ayu-theme/ayu-vim")
+  -- Plug("rakr/vim-one")
 
   -- Searching
   Plug('nvim-lua/plenary.nvim')
@@ -20,17 +20,20 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
   -- Pretty status line
   Plug("vim-airline/vim-airline")
 
-  -- Configurations for Nvim LSP
-  Plug("neovim/nvim-lspconfig")
-  -- Syntax highlighting magic
-  Plug("nvim-treesitter/nvim-treesitter", { ["do"] = vim.fn[":TSUpdate"] })
+  -- LSP and completion
+  Plug("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
+  Plug("github/copilot.vim") -- Copilot
+
   -- Highlight trailing spaces + func to clean them
   Plug("ntpeters/vim-better-whitespace")
+  -- Syntax highlighting magic
+  Plug("nvim-treesitter/nvim-treesitter", { ["do"] = vim.fn[":TSUpdate"] })
 
   -- Some more git goodness; TODO Do I need this + fugitive?
   Plug("airblade/vim-gitgutter")
   -- Git Blame, but nicer
   Plug("APZelos/blamer.nvim") 
+
   -- TPope git goodness
   Plug("tpope/vim-fugitive")
   -- TPope sensible defaults
