@@ -1,61 +1,55 @@
 local Plug = vim.fn["plug#"]
 
 vim.call("plug#begin", "~/.config/nvim/plugged")
+  -- Plenary has some useful libs that other plugs use
+  Plug('nvim-lua/plenary.nvim')
+
   -- Themes
   Plug("folke/tokyonight.nvim", { branch = "main" })
   Plug("drewtempelmeyer/palenight.vim")
-  Plug("tssm/fairyfloss.vim")
-  -- Plug("mhartington/oceanic-next")
+  -- Plug("tssm/fairyfloss.vim")
+  Plug("mhartington/oceanic-next")
   -- Plug("ayu-theme/ayu-vim")
   -- Plug("rakr/vim-one")
 
   -- Searching
-  Plug('nvim-lua/plenary.nvim')
   Plug('nvim-telescope/telescope.nvim', { tag = "1.1.0" })
   Plug('nvim-telescope/telescope-fzf-native.nvim', { ["do"] = vim.fn["make"] })
-  Plug('junegunn/fzf', { ['do'] = vim.fn["fzf#install"] })
-  Plug('junegunn/fzf.vim')
+  
   -- Nicer in-file searching
   Plug("romainl/vim-cool")
   -- Pretty status line
-  Plug("vim-airline/vim-airline")
+  -- Plug("vim-airline/vim-airline")
 
   -- LSP and completion
-  Plug("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
-  Plug("github/copilot.vim") -- Copilot
+  -- Plug("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
+  -- Plug("github/copilot.vim") -- Copilot
 
   -- Highlight trailing spaces + func to clean them
-  Plug("ntpeters/vim-better-whitespace")
-  -- Syntax highlighting magic
-  Plug("nvim-treesitter/nvim-treesitter", { ["do"] = vim.fn[":TSUpdate"] })
+  -- Plug("ntpeters/vim-better-whitespace")
 
-  -- Some more git goodness; TODO Do I need this + fugitive?
-  Plug("airblade/vim-gitgutter")
   -- Git Blame, but nicer
-  Plug("APZelos/blamer.nvim") 
+  -- Plug("APZelos/blamer.nvim") 
 
-  -- TPope git goodness
-  Plug("tpope/vim-fugitive")
   -- TPope sensible defaults
-  Plug("tpope/vim-sensible")
+  -- Plug("tpope/vim-sensible")
 
   -- Yggdrasil
-  Plug("scrooloose/nerdTree")
+  -- Plug("scrooloose/nerdTree")
 
   -- Vim test runner for multiple langs, replaces thoughbot/vim-rspec
   -- So that tests for multiple langs can be ran
-  Plug("vim-test/vim-test")
+  -- Plug("vim-test/vim-test")
 
   -- For the _very rare_ occassion I come by coffeescript these days
-  Plug("kchmck/vim-coffee-script")
+  -- Plug("kchmck/vim-coffee-script")
 
   -- Reopen file at last edit position
-  Plug("farmergreg/vim-lastplace")
+  -- Plug("farmergreg/vim-lastplace")
 
   -- Fold blocks and such, need to play with it
   -- Plug("kevinhwang91/nvim-ufo")
 
   -- Make Tree pretty, has to be at the end
-  -- Plug("ryanoasis/vim-devicons") -- make it pretty
-  Plug("kyazdani42/nvim-web-devicons")
+  -- Plug("kyazdani42/nvim-web-devicons")
 vim.call("plug#end")

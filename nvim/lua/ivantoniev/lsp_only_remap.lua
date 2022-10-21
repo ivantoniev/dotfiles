@@ -33,8 +33,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-local lsp_flags = require('lspconfig')['solargraph'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
+-- local lsp_flags = require('lspconfig')['solargraph'].setup{
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+-- }
 
