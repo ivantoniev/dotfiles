@@ -1,6 +1,7 @@
-local nnoremap = require("ivantoniev.keymap").nnoremap
-local inoremap = require("ivantoniev.keymap").inoremap
-local nmap = require("ivantoniev.keymap").nmap
+local bindings = require("ivantoniev.remapping.remapping_bindings")
+local nnoremap = bindings.nnoremap
+local inoremap = bindings.inoremap
+local nmap = bindings.nmap
 
 -- Navigate splits
 nnoremap("<C-J>", "<C-W><C-J>")

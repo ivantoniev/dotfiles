@@ -1,4 +1,6 @@
 require("ivantoniev.set")
 require("ivantoniev.plug")
-require("ivantoniev.remap")
--- require("ivantoniev.lsp_only_remap")
+require("ivantoniev.remapping/remap")
+require("ivantoniev.plugin_config.treesitter")
+require("ivantoniev.plugin_config.comment")
+-- require("ivantoniev.remapping.lsp_remap")
