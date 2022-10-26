@@ -10,13 +10,14 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
   Plug("tssm/fairyfloss.vim")
   Plug("mhartington/oceanic-next")
   Plug("ayu-theme/ayu-vim")
+  Plug("lunarvim/darkplus.nvim")
   Plug("rakr/vim-one")
   Plug('catppuccin/nvim', { as = 'catppuccin' })
 
   -- Searching
   Plug('nvim-telescope/telescope.nvim', { tag = "1.1.0" })
   Plug('nvim-telescope/telescope-fzf-native.nvim', { ["do"] = vim.fn["make"] })
-  
+
   -- Nicer in-file searching
   Plug("romainl/vim-cool")
   -- Pretty status line
@@ -26,8 +27,20 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
   Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 
   -- LSP and completion
-  -- Plug("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
-  -- Plug("github/copilot.vim") -- Copilot
+  Plug("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
+  Plug("github/copilot.vim") -- Copilot
+
+  -- Code Completion
+  Plug("hrsh7th/nvim-cmp") -- The completion plugin
+  Plug("hrsh7th/cmp-buffer") -- Buffer completions
+  Plug("hrsh7th/cmp-copilot") -- Copilot completions
+  Plug("hrsh7th/cmp-path") -- Path completions
+  Plug("hrsh7th/cmp-cmdline") -- cmdline completions
+  Plug("saadparwaiz1/cmp_luasnip") -- snippet completions
+
+  -- Snippets
+  Plug('L3MON4D3/LuaSnip', { tag = 'v1.1.0'}) -- snippet engine
+  Plug("rafamadriz/friendly-snippets") -- a collection of snippets
 
   -- Highlight trailing spaces + func to clean them
   Plug("ntpeters/vim-better-whitespace")
@@ -36,7 +49,7 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
   Plug('numToStr/Comment.nvim')
 
   -- Git Blame, but nicer
-  -- Plug("APZelos/blamer.nvim") 
+  -- Plug("APZelos/blamer.nvim")
 
   -- TPope sensible defaults
   Plug("tpope/vim-sensible")
