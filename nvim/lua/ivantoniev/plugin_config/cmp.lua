@@ -44,6 +44,11 @@ local kind_icons = {
   TypeParameter = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
+--
+-- Copied a lot of stuff from lunar vim for this config
+-- The only addition is the copilot source
+-- For which also the plugin is needed
+--https://github.com/LunarVim/Neovim-from-scratch/blob/master/lua/user/cmp.lua
 cmp.setup {
   snippet = {
     expand = function(args)
