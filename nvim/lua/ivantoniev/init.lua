@@ -1,5 +1,5 @@
 require("ivantoniev.set")
-require("ivantoniev.plug")
+require("ivantoniev.plugins")
 require("ivantoniev.plugin_config.treesitter")
 require("ivantoniev.plugin_config.comment")
 require("ivantoniev.plugin_config.cmp")

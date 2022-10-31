@@ -33,7 +33,19 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-require('lspconfig')['solargraph'].setup{
+-- pcall lspconfig
+local status_ok, lspconfig = pcall(require, 'lspconfig')
+if not status_ok then
+  return
+end
+local lsp_defaults = lspconfig.util.default_config
+lsp_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lsp_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)
+
+lspconfig['solargraph'].setup{
   settings = {
     solargraph = {
       commandPath = '/Users/ivanivanov/.rvm/gems/ruby-2.7.6/bin/solargraph',

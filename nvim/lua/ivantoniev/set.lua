@@ -1,6 +1,8 @@
 -- General settings
 vim.opt.encoding = "utf-8"
 vim.opt.syntax = "enable"
+-- Or if you have Neovim >= 0.1.5
+vim.opt.termguicolors = true
 
 -- Set leader
 vim.g.mapleader = ","
