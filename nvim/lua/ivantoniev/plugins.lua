@@ -65,8 +65,11 @@ return packer.startup(function(use)
 
   -- Nicer in-file searching
   use "romainl/vim-cool"
-  -- Pretty status line - move to lualine
-  -- Plug("vim-airline/vim-airline")
+  -- Pretty status line -
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
   -- Treesitter better syntax higlight, other parsing goodness
   use {
