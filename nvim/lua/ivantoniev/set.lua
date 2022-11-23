@@ -52,6 +52,7 @@ vim.opt.visualbell = true
 
 -- Allow neovim to use global clipboard
 vim.opt.clipboard = "unnamedplus"
+vim.g.neovide_input_use_logo = 1
 
 -- Allow hidden files in NERDTree
 NERDTreeShowHidden=2

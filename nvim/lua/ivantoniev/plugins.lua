@@ -62,6 +62,7 @@ return packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use "ThePrimeagen/harpoon"
 
   -- Nicer in-file searching
   use "romainl/vim-cool"
@@ -70,7 +71,6 @@ return packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
-
   -- Treesitter better syntax higlight, other parsing goodness
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -89,10 +89,17 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completion
   use "saadparwaiz1/cmp_luasnip" -- snippet completion
   use "hrsh7th/cmp-nvim-lsp" -- LSP completion
-
+  use "jose-elias-alvarez/null-ls.nvim" -- Better bridge between nvim lsp and lang servers
+  -- Pretty list of troubles (lsp, diagnostics, quickfix, telescope res etc)
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   -- Snippets
   use { 'L3MON4D3/LuaSnip', tag = 'v1.1.0' } -- snippet engin
   use "rafamadriz/friendly-snippets" -- a collection of snippet
+
+  -- UI looks nicer
+  use "stevearc/dressing.nvim"
+  -- Nice looking buffer line
+  use { "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }
 
   -- Highlight trailing spaces + func to clean them
   use "ntpeters/vim-better-whitespace"
@@ -129,6 +136,11 @@ return packer.startup(function(use)
 
   -- Matchup language specific expressions eg while->end
   use { 'andymass/vim-matchup', event = 'VimEnter' }
+
+  -- Colorize colors
+  use "norcalli/nvim-colorizer.lua"
+  -- Colorize TODO style comments
+  use "folke/todo-comments.nvim"
 
   -- Make Tree pretty, has to be at the end
   use "kyazdani42/nvim-web-devicons"
