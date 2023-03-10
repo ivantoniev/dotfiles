@@ -62,11 +62,11 @@ return packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use "ThePrimeagen/harpoon"
+  use "ThePrimeagen/harpoon" 
 
   -- Nicer in-file searching
   use "romainl/vim-cool"
-  -- Pretty status line -
+  -- Pretty status line - move to lualine
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -99,7 +99,7 @@ return packer.startup(function(use)
   -- UI looks nicer
   use "stevearc/dressing.nvim"
   -- Nice looking buffer line
-  use { "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }
+  -- use { "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }
 
   -- Highlight trailing spaces + func to clean them
   use "ntpeters/vim-better-whitespace"
@@ -136,7 +136,7 @@ return packer.startup(function(use)
 
   -- Matchup language specific expressions eg while->end
   use { 'andymass/vim-matchup', event = 'VimEnter' }
-
+  
   -- Colorize colors
   use "norcalli/nvim-colorizer.lua"
   -- Colorize TODO style comments
