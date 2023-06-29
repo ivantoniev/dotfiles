@@ -1,153 +1,141 @@
-local fn = vim.fn
-
--- Auto install packer
-local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     'git',
     'clone',
-    '--depth',
-    '1',
-    'https://github.com/wbthomason/packer.nvim',
-    install_path,
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
   })
-  print 'Installing packer, close and reopen Neovim...'
-  vim.cmd [[packadd packer.nvim]]
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand that reloads neovim when the plugins.lua file is changed and saved
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
-
--- Have packer use a popup
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float({ border = "rounded" })
-    end,
-  },
-}
-
--- Install plugins here
-return packer.startup(function(use)
-  use 'wbthomason/packer.nvim' -- packer itself
-  use 'nvim-lua/popup.nvim' -- popup for packer, ported from vim
+local plugins = {
   -- plenary has some useful libs that other plugs use
-  use 'nvim-lua/plenary.nvim'
+  'nvim-lua/plenary.nvim',
 
   -- Themes
-  use { "folke/tokyonight.nvim", branch = "main" }
-  use "drewtempelmeyer/palenight.vim"
-  use "tssm/fairyfloss.vim"
-  use "mhartington/oceanic-next"
-  use "ayu-theme/ayu-vim"
-  use "lunarvim/darkplus.nvim"
-  use "rakr/vim-one"
-  use { 'catppuccin/nvim', as = 'catppuccin' }
-  use "lunarvim/colorschemes"
-
+  { 'folke/tokyonight.nvim', lazy = false, priority = 1000, opts = {} },
+  'drewtempelmeyer/palenight.vim',
+  'tssm/fairyfloss.vim',
+  'mhartington/oceanic-next',
+  'ayu-theme/ayu-vim',
+  'lunarvim/darkplus.nvim',
+  'rakr/vim-one',
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  'lunarvim/colorschemes',
+  'EdenEast/nightfox.nvim',
   -- Searching
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use "ThePrimeagen/harpoon" 
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.1',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+  },
+  -- Possible key bindings for started command
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  },
+
+  'ThePrimeagen/harpoon',
 
   -- Nicer in-file searching
-  use "romainl/vim-cool"
+  'romainl/vim-cool',
   -- Pretty status line - move to lualine
-  use {
+  {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+    dependencies = { 'kyazdani42/nvim-web-devicons' },
+    lazy = true
+  },
   -- Treesitter better syntax higlight, other parsing goodness
-  use {
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
+    build = ':TSUpdate'
+  },
 
   -- LSP and completion
-  use "neovim/nvim-lspconfig" -- Configurations for Nvim LS
-  use "github/copilot.vim" -- Copilo
+  'neovim/nvim-lspconfig', -- Configurations for Nvim LS
+  'github/copilot.vim', -- Copilo
 
   -- Code Completion
-  use "hrsh7th/nvim-cmp" -- The completion plugi
-  use "hrsh7th/cmp-buffer" -- Buffer completion
-  use "hrsh7th/cmp-copilot" -- Copilot completion
-  use "hrsh7th/cmp-path" -- Path completion
-  use "hrsh7th/cmp-cmdline" -- cmdline completion
-  use "saadparwaiz1/cmp_luasnip" -- snippet completion
-  use "hrsh7th/cmp-nvim-lsp" -- LSP completion
-  use "jose-elias-alvarez/null-ls.nvim" -- Better bridge between nvim lsp and lang servers
+  'hrsh7th/nvim-cmp', -- The completion plugi
+  'hrsh7th/cmp-buffer', -- Buffer completion
+  'hrsh7th/cmp-copilot', -- Copilot completion
+  'hrsh7th/cmp-path', -- Path completion
+  'hrsh7th/cmp-cmdline', -- cmdline completion
+  'saadparwaiz1/cmp_luasnip', -- snippet completion
+  'hrsh7th/cmp-nvim-lsp', -- LSP completion
+  'jose-elias-alvarez/null-ls.nvim', -- Better bridge between nvim lsp and lang servers
   -- Pretty list of troubles (lsp, diagnostics, quickfix, telescope res etc)
-  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
+  { 'folke/trouble.nvim', dependencies = { 'kyazdani42/nvim-web-devicons' } },
   -- Snippets
-  use { 'L3MON4D3/LuaSnip', tag = 'v1.1.0' } -- snippet engin
-  use "rafamadriz/friendly-snippets" -- a collection of snippet
+  { 'L3MON4D3/LuaSnip', tag = 'v1.1.0' }, -- snippet engin
+  'rafamadriz/friendly-snippets', -- a collection of snippet
 
   -- UI looks nicer
-  use "stevearc/dressing.nvim"
+  'stevearc/dressing.nvim',
   -- Nice looking buffer line
-  -- use { "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }
+  -- { 'akinsho/bufferline.nvim', tag = 'v3.*', requires = 'nvim-tree/nvim-web-devicons' }
 
   -- Highlight trailing spaces + func to clean them
-  use "ntpeters/vim-better-whitespace"
+  'ntpeters/vim-better-whitespace',
 
   -- Commenting like a normal editor + motions
-  use 'numToStr/Comment.nvim'
+  'numToStr/Comment.nvim',
 
   -- Git Blame, but nicer
-  use "APZelos/blamer.nvim"
+  'APZelos/blamer.nvim',
 
   -- TPope sensible defaults
-  use "tpope/vim-sensible"
+  'tpope/vim-sensible',
 
   -- Yggdrasil
   -- Potentially change nerdtree for nvimtree for a bit of speedup
-  use "scrooloose/nerdTree"
+  'scrooloose/nerdTree',
   -- Plug('nvim-tree/nvim-tree.lua')
 
   -- Vim test runner for multiple langs, replaces thoughbot/vim-rspec
   -- So that tests for multiple langs can be ran
-  use "vim-test/vim-test"
+  'vim-test/vim-test',
 
   -- For the _very rare_ occassion I come by coffeescript these days
-  -- Plug("kchmck/vim-coffee-script")
+  -- Plug('kchmck/vim-coffee-script')
 
   -- Reopen file at last edit position
-  use "farmergreg/vim-lastplace"
+  'farmergreg/vim-lastplace',
 
   -- Fold blocks and such, need to play with it
-  -- Plug("kevinhwang91/nvim-ufo")
+  -- Plug('kevinhwang91/nvim-ufo')
 
   -- Markdown preview stuff
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  -- use({ 'iamcco/markdown-preview.nvim', run = 'cd app && npm install', setup = function() vim.g.mkdp_filetypes = { 'markdown' } end, ft = { 'markdown' }, })
 
   -- Matchup language specific expressions eg while->end
-  use { 'andymass/vim-matchup', event = 'VimEnter' }
+  { 'andymass/vim-matchup', event = 'VimEnter' },
   
   -- Colorize colors
-  use "norcalli/nvim-colorizer.lua"
+  'norcalli/nvim-colorizer.lua',
   -- Colorize TODO style comments
-  use "folke/todo-comments.nvim"
+  'folke/todo-comments.nvim',
 
   -- Make Tree pretty, has to be at the end
-  use "kyazdani42/nvim-web-devicons"
+  'kyazdani42/nvim-web-devicons',
+}
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require('packer').sync()
-  end
-end)
+local opts = {}
+
+require('lazy').setup(plugins, opts)

@@ -77,5 +77,6 @@ vim.g.neovide_cursor_vfx_particle_curl = 1.0 -- railgun only
 
 -- This comes from the vim-better-whitespace plugin
 vim.g.strip_whitespace_on_save = 1 -- Strip whitespace on save
+-- For this to work we need brew install diffutils as Applediff doesn't seem to support this
 vim.g.strip_only_modified_lines = 1 -- Don't strip everything
 
