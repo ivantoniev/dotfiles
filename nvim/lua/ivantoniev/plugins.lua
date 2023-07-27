@@ -97,6 +97,8 @@ local plugins = {
   -- Commenting like a normal editor + motions
   'numToStr/Comment.nvim',
 
+  -- Git in vim
+  'tpope/vim-fugitive',
   -- Git Blame, but nicer
   'APZelos/blamer.nvim',
 
@@ -106,7 +108,7 @@ local plugins = {
   -- Yggdrasil
   -- Potentially change nerdtree for nvimtree for a bit of speedup
   'scrooloose/nerdTree',
-  -- Plug('nvim-tree/nvim-tree.lua')
+  'nvim-tree/nvim-tree.lua',
 
   -- Vim test runner for multiple langs, replaces thoughbot/vim-rspec
   -- So that tests for multiple langs can be ran

@@ -1,6 +1,11 @@
 -- General settings
 vim.opt.encoding = "utf-8"
 vim.opt.syntax = "enable"
+
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Or if you have Neovim >= 0.1.5
 vim.opt.termguicolors = true
 
