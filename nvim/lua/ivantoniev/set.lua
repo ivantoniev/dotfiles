@@ -84,4 +84,12 @@ vim.g.neovide_cursor_vfx_particle_curl = 1.0 -- railgun only
 vim.g.strip_whitespace_on_save = 1 -- Strip whitespace on save
 -- For this to work we need brew install diffutils as Applediff doesn't seem to support this
 vim.g.strip_only_modified_lines = 1 -- Don't strip everything
+-- Disable Perl provider
+vim.g.loaded_perl_provider = 0
 
+-- Folding settings
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]

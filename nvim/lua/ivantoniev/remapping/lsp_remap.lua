@@ -49,7 +49,7 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
 lspconfig['solargraph'].setup{
   settings = {
     solargraph = {
-      commandPath = '/Users/ivanivanov/.rvm/gems/ruby-2.7.6/bin/solargraph',
+      commandPath = '/Users/ivanivanov/.rvm/gems/ruby-3.1.3/bin/solargraph',
       diagnostics = true,
       completion = true
     }
