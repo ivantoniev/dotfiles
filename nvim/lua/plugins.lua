@@ -36,13 +36,6 @@ local plugins = {
 
   -- Nicer in-file searching
   { 'romainl/vim-cool' },
-  -- Pretty status line - move to lualine
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
-    lazy = true
-  },
-
   -- LSP and completion
   'neovim/nvim-lspconfig', -- Configurations for Nvim LS
   'github/copilot.vim', -- Copilot
