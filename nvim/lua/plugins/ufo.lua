@@ -1,7 +1,7 @@
   -- Folding
  return {
     'kevinhwang91/nvim-ufo',
-    dependencies = { 'kevinhwang91/promise-async', 'nvim-treesitter/nvim-treesitter' },
+    dependencies = { 'kevinhwang91/promise-async' },
     lazy = true,
     config = function()
       -- Setup folding based on treesitter
