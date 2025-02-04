@@ -2,7 +2,7 @@ return {
   -- Code Completion
   { 'hrsh7th/nvim-cmp' },
   { 'hrsh7th/cmp-buffer' },
-  { 'hrsh7th/cmp-copilot' },
+  -- { 'hrsh7th/cmp-copilot' },
   { 'hrsh7th/cmp-path' },
   { 'hrsh7th/cmp-cmdline' },
   { 'saadparwaiz1/cmp_luasnip' },

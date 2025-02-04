@@ -1,15 +1,25 @@
 local bindings = require("ivantoniev.remapping.remapping_bindings")
 local nnoremap = bindings.nnoremap
 local inoremap = bindings.inoremap
+local cnoremap = bindings.cnoremap
 local nmap = bindings.nmap
+local vmap = bindings.vmap
 
 -- Navigate splits
 nnoremap("<C-J>", "<C-W><C-J>")
 nnoremap("<C-K>", "<C-W><C-K>")
 nnoremap("<C-L>", "<C-W><C-L>")
 nnoremap("<C-H>", "<C-W><C-H>")
--- pasting
+-- pasting (system clip)
 inoremap("<D-v>", '<C-r>"')
+inoremap('<D-v>', '<C-r>+')
+-- cnoremap('<D-v>', '<C-r>+')
+-- nmap('<D-v>', '"+p')
+-- nmap('<D-c>', '"+y')
+-- vmap('<D-c>', '"+y')
+-- use <c-r> to insert original character without triggering things like auto-pairs
+-- in mac c maps to D for command if you don't wanna stretch
+-- inoremap('<D-r>', '<C-v>')
 
 -- Autoclose brackets
 inoremap("{<cr>", "{<cr>}<c-o><s-o>")
@@ -42,4 +52,5 @@ nnoremap("<leader>fh", "<cmd>Telescope help_tags<cr>")
 
 -- Copying filename to clipboard
 nmap("<leader>cs", ":let @*=expand('%')<CR>") -- Copy just filename
-nmap("<leader>cl", ":let @*=expand('%:p')<CR>") -- Copy filename with path
+-- nmap("<leader>cl", ":let @*=expand('%:p')<CR>") -- Copy filename with path
+-- nmap("<leader>cl", ":let @*=fnamemodify(expand("%"), ":~:.")<CR>") -- Copy filename with path

@@ -9,14 +9,11 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "solargraph" }
+        ensure_installed = { "lua_ls" }
       })
     end
   },
   {
     "neovim/nvim-lspconfig",
   },
-  {
-    "github/copilot.vim",
-  }
 }

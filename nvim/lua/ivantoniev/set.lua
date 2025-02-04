@@ -22,7 +22,7 @@ vim.opt.autoindent = true
 
 vim.opt.listchars = vim.opt.listchars + "space:·"
 vim.opt.list = true
-vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h14"
+vim.opt.guifont = "MesloLGS Nerd Font Mono:h13"
 vim.g.gui_font_size = 13
 vim.opt.title = true
 vim.opt.updatetime = 100
@@ -81,9 +81,9 @@ vim.g.neovide_cursor_vfx_particle_phase = 0.8 -- railgun only
 vim.g.neovide_cursor_vfx_particle_curl = 1.0 -- railgun only
 
 -- This comes from the vim-better-whitespace plugin
-vim.g.strip_whitespace_on_save = 1 -- Strip whitespace on save
+vim.g.strip_whitespace_on_save = 0 -- Strip whitespace on save
 -- For this to work we need brew install diffutils as Applediff doesn't seem to support this
-vim.g.strip_only_modified_lines = 1 -- Don't strip everything
+vim.g.strip_only_modified_lines = 0 -- Don't strip everything
 -- Disable Perl provider
 vim.g.loaded_perl_provider = 0
 
